@@ -13,5 +13,5 @@ namespace App\Swagger;
  */
 class OpenApi
 {
-    // This class is only for Swagger annotations
+
 }

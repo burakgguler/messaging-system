@@ -84,5 +84,4 @@ class MessageController extends Controller
             'data' => $messages->items(),
         ]);
     }
-
 }
