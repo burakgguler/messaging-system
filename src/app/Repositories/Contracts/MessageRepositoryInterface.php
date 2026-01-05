@@ -18,6 +18,4 @@ interface MessageRepositoryInterface
     public function getSentMessages();
 
     public function findById(int $id): Message;
-
-    public function markAsFailed(int $id, string $reason): void;
 }

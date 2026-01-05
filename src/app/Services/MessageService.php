@@ -6,7 +6,6 @@ use App\Jobs\SendMessageJob;
 use App\Repositories\Contracts\MessageRepositoryInterface;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
-use Throwable;
 
 class MessageService
 {
@@ -99,17 +98,12 @@ class MessageService
         );
     }
 
-    public function markAsFailed(int $messageId, Throwable $exception): void
-    {
-        $this->messageRepository->markAsFailed(
-            $messageId,
-            $exception->getMessage()
-        );
-    }
-
+    /**
+     * @param int $perPage
+     * @return mixed
+     */
     public function getSentMessages(int $perPage = 10)
     {
         return $this->messageRepository->getSentMessages($perPage);
     }
-
 }

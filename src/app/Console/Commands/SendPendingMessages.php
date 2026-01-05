@@ -11,6 +11,10 @@ class SendPendingMessages extends Command
 
     protected $description = 'Dispatch pending messages';
 
+    /**
+     * @param MessageService $messageService
+     * @return int
+     */
     public function handle(MessageService $messageService): int
     {
         $count = $messageService->dispatchPendingMessages();

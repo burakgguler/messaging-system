@@ -13,12 +13,20 @@ class SendMessageJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
+    /** @var int */
     public int $tries = 3;
 
+    /**
+     * @param int $messageId
+     */
     public function __construct(
         private int $messageId
     ) {}
 
+    /**
+     * @param MessageService $messageService
+     * @return void
+     */
     public function handle(MessageService $messageService): void
     {
         $messageService->sendMessage($this->messageId);
