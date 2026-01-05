@@ -1,0 +1,114 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Insider Message System API",
+        "description": "API documentation for the automatic message sending system",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/messages/sent": {
+            "get": {
+                "tags": [
+                    "Messages"
+                ],
+                "summary": "Get sent messages",
+                "description": "Returns a paginated list of sent messages",
+                "operationId": "getSentMessages",
+                "parameters": [
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Number of items per page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 10,
+                            "example": 10
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1,
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "meta": {
+                                            "properties": {
+                                                "total": {
+                                                    "type": "integer",
+                                                    "example": 42
+                                                },
+                                                "per_page": {
+                                                    "type": "integer",
+                                                    "example": 10
+                                                },
+                                                "current_page": {
+                                                    "type": "integer",
+                                                    "example": 1
+                                                },
+                                                "last_page": {
+                                                    "type": "integer",
+                                                    "example": 5
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 1
+                                                    },
+                                                    "phone_number": {
+                                                        "type": "string",
+                                                        "example": "+9055543208888"
+                                                    },
+                                                    "content": {
+                                                        "type": "string",
+                                                        "example": "Hello Insider"
+                                                    },
+                                                    "message_id": {
+                                                        "type": "string",
+                                                        "example": "67f2f8a8-ea58-4ed0-a6f9-ff217df4d849"
+                                                    },
+                                                    "sent_at": {
+                                                        "type": "string",
+                                                        "format": "date-time",
+                                                        "example": "2026-01-04 12:30:00"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Messages",
+            "description": "Messages"
+        }
+    ]
+}

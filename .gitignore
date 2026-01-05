@@ -1,1 +1,49 @@
+# -----------------------------
+# Laravel
+# -----------------------------
+/vendor/
+/node_modules/
+public/storage
+storage/*.key
+storage/logs/*
+storage/framework/*
+bootstrap/cache/*
+
+# Allow required directories
+!storage/framework/.gitignore
+!storage/logs/.gitignore
+
+# -----------------------------
+# Environment files
+# -----------------------------
+.env
+.env.*
+!.env.example
+
+# -----------------------------
+# PHPUnit / Tests
+# -----------------------------
+.phpunit.result.cache
+
+# -----------------------------
+# IDE / OS
+# -----------------------------
 .idea/
+.DS_Store
+Thumbs.db
+
+# -----------------------------
+# Docker
+# -----------------------------
+docker-compose.override.yml
+
+# -----------------------------
+# Swagger / OpenAPI generated files
+# -----------------------------
+storage/api-docs/*
+!storage/api-docs/.gitignore
+
+# -----------------------------
+# Logs
+# -----------------------------
+*.log
