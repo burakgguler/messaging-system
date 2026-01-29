@@ -1,8 +1,8 @@
-# Insider Message Sending System
+# Messaging System
 
-This project is an automatic message sending system developed as a technical assessment.
+This project is an automatic message sending platform built with Laravel.
 It sends messages stored in the database to an external webhook using a queue-based
-architecture with rate limiting.
+architecture with rate limiting and Redis caching.
 
 ---
 
@@ -82,7 +82,7 @@ GET http://localhost:8080/api/messages/sent?per_page=10&page=1
     {
       "id": 1,
       "phone_number": "+905551112233",
-      "content": "Hello Insider",
+      "content": "Hello World",
       "message_id": "67f2f8a8-ea58-4ed0-a6f9-ff217df4d849",
       "sent_at": "2026-01-04 12:30:00"
     }
@@ -103,7 +103,7 @@ http://localhost:8080/api/documentation
 Clone the repository and build the containers:
 
 ```shell
-git clone git@github.com:burakgguler/insider-message-system.git
+git clone git@github.com:burakgguler/messaging-system.git
 ```
 
 ```shell
